@@ -249,21 +249,49 @@ async def agente_lugares(state):
 
 async def agente_itinerario(state):
     """Agente para generar itinerarios"""
+    # Extraer información de la pregunta
     destino = extraer_destino(state["question"])
     if not destino:
         return {**state, "answer": "¿Podrías decirme para qué destino te gustaría un itinerario?"}
     
+    # Extraer duración del viaje
     dias = extraer_dias(state["question"])
+    
+    # Extraer tema o tipo de viaje
     tema = extraer_tema(state["question"])
+    
+    # Extraer presupuesto si se menciona
+    presupuesto = ""
+    match = re.search(r'(\d+[,\.]?\d*)\s*(?:dolares|usd|\$|euros|€)', state["question"], re.IGNORECASE)
+    if match:
+        monto = match.group(1).replace(',', '')
+        presupuesto = f" con un presupuesto de aproximadamente {monto} dólares"
     
     system_prompt = """Eres un experto en planificación de viajes. Crea un itinerario detallado 
     que incluya actividades para cada día, recomendaciones de lugares para comer, 
-    y consejos de transporte. Sé específico y realista con los tiempos."""
+    y consejos de transporte. Sé específico y realista con los tiempos.
     
-    user_prompt = f"Crea un itinerario de {dias} días en {destino} con temática {tema}. {DISCLAIMER}"
+    Si se menciona un presupuesto, asegúrate de que las recomendaciones se ajusten a él.
+    Incluye consejos sobre transporte local, horarios de atracciones y cualquier otro detalle útil.
+    """
     
-    respuesta = await generate_with_groq(system_prompt, user_prompt)
-    return {**state, "answer": respuesta}
+    user_prompt = (
+        f"Crea un itinerario de {dias} días en {destino} con temática {tema}{presupuesto}. "
+        f"Incluye actividades para cada día, lugares para comer y consejos de transporte. {DISCLAIMER}"
+    )
+    
+    try:
+        respuesta = await generate_with_groq(system_prompt, user_prompt)
+        # Asegurarse de que la respuesta no esté vacía
+        if not respuesta or len(respuesta.strip()) < 10:
+            raise ValueError("Respuesta vacía del modelo")
+        return {**state, "answer": respuesta}
+    except Exception as e:
+        print(f"[Error] Error al generar itinerario: {str(e)}")
+        return {
+            **state, 
+            "answer": "Lo siento, hubo un error al generar el itinerario. Por favor, intenta de nuevo más tarde."
+        }
 
 # -----------------------------
 # Clasificador de intenciones
