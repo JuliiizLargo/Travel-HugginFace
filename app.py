@@ -212,7 +212,7 @@ async def agente_clima(state):
     
     user_prompt = f"Proporciona información sobre el clima en {destino}. {DISCLAIMER}"
     
-    respuesta = await generate_with_hf(system_prompt, user_prompt)
+    respuesta = await generate_with_groq(system_prompt, user_prompt)
     return {**state, "answer": respuesta}
 
 async def agente_costos(state):
@@ -227,7 +227,7 @@ async def agente_costos(state):
     
     user_prompt = f"Proporciona estimaciones de costos para viajar a {destino}. {DISCLAIMER}"
     
-    respuesta = await generate_with_hf(system_prompt, user_prompt)
+    respuesta = await generate_with_groq(system_prompt, user_prompt)
     return {**state, "answer": respuesta}
 
 async def agente_lugares(state):
@@ -244,7 +244,7 @@ async def agente_lugares(state):
     
     user_prompt = f"Recomienda lugares para visitar en {destino} con temática {tema}. {DISCLAIMER}"
     
-    respuesta = await generate_with_hf(system_prompt, user_prompt)
+    respuesta = await generate_with_groq(system_prompt, user_prompt)
     return {**state, "answer": respuesta}
 
 async def agente_itinerario(state):
@@ -262,7 +262,7 @@ async def agente_itinerario(state):
     
     user_prompt = f"Crea un itinerario de {dias} días en {destino} con temática {tema}. {DISCLAIMER}"
     
-    respuesta = await generate_with_hf(system_prompt, user_prompt)
+    respuesta = await generate_with_groq(system_prompt, user_prompt)
     return {**state, "answer": respuesta}
 
 # -----------------------------
