@@ -272,23 +272,16 @@ async def clasificador(state):
     """Clasifica la intención de la pregunta"""
     system_prompt = """Clasifica la intención de la pregunta del usuario en una de estas categorías:
     - "clima": Preguntas sobre el clima o condiciones meteorológicas
-    - "costos": Preguntas sobre precios, presupuestos o gastos
-    - "lugares": Preguntas sobre qué ver o hacer en un lugar
-    - "itinerario": Solicitudes para crear un plan de viaje
-    - "otro": Cualquier otra cosa
-    
-    Responde solo con la palabra clave de la categoría, sin comillas ni puntuación."""
-    
-    respuesta = await generate_with_hf(system_prompt, state["question"])
-    
-    # Limpiar la respuesta
-    respuesta = respuesta.strip().lower()
-    if respuesta in ["clima", "costos", "lugares", "itinerario"]:
-        return {**state, "intencion": respuesta}
-    return {**state, "intencion": "otro"}
+    - "costos": Consultas sobre precios, presupuestos o gastos
+    - "lugares": Búsqueda de puntos de interés o recomendaciones
+    - "itinerario": Solicitudes para crear planes de viaje o rutas
+    - "otro": Cualquier otra consulta que no entre en las categorías anteriores
 
-# -----------------------------
-# Orquestador
+    Responde SOLO con la palabra clave de la categoría, sin comillas ni puntos.
+    """
+    respuesta = await generate_with_groq(system_prompt, state["question"])
+    state["intencion"] = respuesta.lower().strip()
+    return state
 # -----------------------------
 async def run_graph(question: str):
     """Ejecuta el flujo de procesamiento de la pregunta"""
