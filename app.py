@@ -18,7 +18,7 @@ HUGGINGFACE_MODEL = "meta-llama/Llama-2-7b-chat-hf"
 
 # Para generación de texto con Groq
 GROQ_API_KEY = os.environ.get("GROQ_API_KEY", "")
-GROQ_MODEL = os.environ.get("GROQ_MODEL", "llama-3.1-70b-versatile")
+GROQ_MODEL = os.environ.get("GROQ_MODEL", "mixtral-8x7b-32768")  # Modelo actualizado
 
 DISCLAIMER = "ℹ Nota: Esta información es ficticia y solo con fines académicos."
 
@@ -316,7 +316,7 @@ async def run_graph(question: str):
         system_prompt = """Eres un asistente turístico amable y servicial. Responde a la pregunta 
         del usuario de manera clara y concisa. Si no tienes suficiente información, 
         sé honesto y ofrece ayuda con lo que puedas."""
-        state["answer"] = await generate_with_hf(system_prompt, question)
+        state["answer"] = await generate_with_groq(system_prompt, question)
     
     # Verificar que la respuesta sea segura
     if not guardrails_respuesta(state["answer"]):
