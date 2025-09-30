@@ -18,4 +18,4 @@ El sistema y sus integraciones con APIs externas se configuran siguiendo el prin
 
 Importante
 
-Las respuestas generadas son automáticas. Antes de utilizarlas en un contexto académico, laboral o legal, el usuario debe verificar y validar la información por su cuenta.
+Antes de utilizar las respuestas en un contexto académico, laboral o legal, el usuario debe verificar y validar la información por su cuenta.
