@@ -175,7 +175,7 @@ Agradecimientos a Groq y Hugging Face por sus APIs.
 
 💬 Ejemplos de preguntas
 - “¿Cómo es el clima en Medellín a lo largo del año?”
-- “Quiero un itinerario de 4 días en Cusco con temática cultural.”
+- “Quiero un itinerario de 3 días en Cusco con temática cultural.”
 - “Presupuesto aproximado para 5 días en Buenos Aires.”
 - “Itinerario de 3 días en Cartagena, familiar, con 250 USD de presupuesto.”
 
