@@ -24,7 +24,8 @@ Raíz del proyecto:
 
 Estructura esperada:
 - static/
-   └─ styles.css
+-  └─ styles.css
+-  └─ index.html
 - app.py
 - requirements.txt
 - runtime.txt
