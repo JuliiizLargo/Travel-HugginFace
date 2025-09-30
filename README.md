@@ -171,8 +171,8 @@ Sugerencia: licencia MIT.
 Revisa/ajusta POLITICAS.md para tu caso.
 
 👨‍💻 Créditos / Autoría
-Autoría del repositorio y personalización de frontend/backends: (agrega tu nombre/usuario).
-Agradecimientos a Groq y Hugging Face por sus APIs.
+- Autoría del repositorio y personalización de frontend/backends: (agrega tu nombre/usuario).
+- Agradecimientos a Groq y Hugging Face por sus APIs.
 
 💬 Ejemplos de preguntas
 - “¿Cómo es el clima en Medellín a lo largo del año?”
