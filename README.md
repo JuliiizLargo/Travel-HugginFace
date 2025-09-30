@@ -36,6 +36,7 @@ Estructura esperada:
 - Python 3.11 (runtime.txt indica 3.11.9).
 - Cuenta y API Key de Groq.
 - Cuenta y Token de Hugging Face (opcional si no usarás la función de “búsqueda”).
+- ⚠️**Nota importante:** si se acaban los créditos del token en Hugging Face o alguna de las APIs, el sistema puede devolver respuestas incompletas o indicar que no puede responder a la consulta.
 - Git (para clonar) y, si despliegas, una cuenta en Vercel.
 
 ⚙️ Instalación local (paso a paso)
