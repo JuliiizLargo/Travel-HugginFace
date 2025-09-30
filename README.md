@@ -169,5 +169,4 @@ EJEMPLOS DE PREGUNTAS
 • “¿Cómo es el clima en Medellín a lo largo del año?”
 • “Quiero un itinerario de 4 días en Cusco con temática cultural.”
 • “Presupuesto aproximado para 5 días en Buenos Aires.”
-• “Recomiéndame lugares en Ciudad de México, plan foodie.”
 • “Itinerario de 3 días en Cartagena, familiar, con 250 USD de presupuesto.”
