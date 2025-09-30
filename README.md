@@ -171,7 +171,7 @@ Sugerencia: licencia MIT.
 Revisa/ajusta POLITICAS.md para tu caso.
 
 👨‍💻 Créditos / Autoría
-- Autoría del repositorio y personalización de frontend/backends: (agrega tu nombre/usuario).
+- Autoría del repositorio y personalización de frontend/backends: @Jenn2001-hub - @JuliiizLargo - @juanbeta77.
 - Agradecimientos a Groq y Hugging Face por sus APIs.
 
 💬 Ejemplos de preguntas
